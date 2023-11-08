@@ -1,5 +1,6 @@
 .class-content {
     width: calc(100% - 350px);
+    top: 50px;
 }
 
 .fill {

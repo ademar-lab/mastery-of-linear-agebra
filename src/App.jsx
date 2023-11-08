@@ -1,5 +1,6 @@
 import { Home } from './pages/home';
 import { Classes } from './pages/classes';
+import { Navbar } from './components/navbar';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <Navbar/>
       <RouterProvider router={router} />
     </>
   )
