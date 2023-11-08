@@ -1,11 +1,14 @@
-import { Sidebar } from '../components/sidebar'
+import { ClassContent } from '../components/classcontent'
 
 const Classes = () => {
 	return (
 		<>
-			<h1>Classes</h1>
-			<Sidebar/>
+			<div  className='flex justify-center'>
+				<h1>Classes</h1>
+			</div>
+			<ClassContent/>
 		</>
+
 	)
 }
 
