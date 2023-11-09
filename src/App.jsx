@@ -5,6 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
+import { ClassesProvider } from './context';
 
 const router = createBrowserRouter([
   {
@@ -19,10 +20,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <ClassesProvider>
       <Navbar/>
       <RouterProvider router={router} />
-    </>
+    </ClassesProvider>
   )
 }
 
