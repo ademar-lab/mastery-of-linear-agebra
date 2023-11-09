@@ -9,10 +9,10 @@ const Sidebar = () => {
 		<div className='flex flex-col gap-4 fixed left-0 p-2 text-xl bg-slate-100 sidebar'>
 			<p className='self-center text-4xl'>Classes</p>
 			<nav>
-				<ul className='flex flex-col gap-2 classes'>
+				<ul className='flex flex-col classes'>
 					{classes.map(element => 
-						<li className='text-base'>
-							<a href="/">{element}</a>
+						<li className='text-base cursor-pointer hover:bg-black hover:text-white'>
+							<p>{element}</p>
 						</li>
 					)}
 				</ul>

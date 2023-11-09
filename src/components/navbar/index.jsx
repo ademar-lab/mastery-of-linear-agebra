@@ -10,7 +10,7 @@ const Navbar = () => {
 				<li className='cursor-pointer'>
 					<a href='/'>Home</a>
 				</li>
-				<li className='cursor-pointer px-2 py-1 bg-black text-white rounded-2xl'>
+				<li className='cursor-pointer px-2 py-1 bg-black text-white border-2 border-black rounded-2xl hover:bg-white hover:text-black'>
 					<a href='/'>Contribute</a>
 				</li>
 			</ul>
