@@ -2,7 +2,7 @@ import './styles.css';
 
 const Navbar = () => {
 	return (
-		<nav className='flex justify-between items-center px-6 py-2 fixed z-10 bg-white w-full navbar'>
+		<nav className='flex justify-between items-center px-6 py-2 fixed top-0 z-10 bg-white w-full navbar'>
 			<h2 className='text-xl cursor-pointer'>
 			<a href='/'>Mastery of Linear Algebra</a>
 			</h2>
