@@ -6,9 +6,11 @@ const ClassesContext = createContext();
 const classes = [
     {
         title: 'Vectors, what even are they?',
+        math: 'When \\(a \\ne 0\\), there exists two solutions for\\(ax^2 + bx + c = 0\\) as \\[x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.\\]',
     },
     {
         title:  'Linear combinations, span, and basis vectors',
+        math: '\\begin{bmatrix}a \\\\c \\end{bmatrix}',
     },
     {
         title: 'Linear transformations and matrices',
