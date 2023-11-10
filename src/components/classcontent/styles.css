@@ -1,6 +1,10 @@
-.class-content {
+.class-content-container {
     width: calc(100% - 350px);
     top: 50px;
+}
+
+.class-content{
+    max-width: 1000px;
 }
 
 .fill {
