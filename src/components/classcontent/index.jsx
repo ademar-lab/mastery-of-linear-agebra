@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { ClassesContext } from '../../context';
+import { PracticeExercise } from '../practiceExercise';
 import './styles.css';
 
 const ClassContent = () => {
     const {classes, activeClass} = useContext(ClassesContext);
-    const [tex, setTex] = useState('');
 
     useEffect(()=>{
         if(typeof window?.MathJax !== "undefined"){
@@ -27,6 +27,10 @@ const ClassContent = () => {
                         <>
                             <h3 className='my-5 text-3xl font-medium text-center'>{exercise.title}</h3>
                             <p>{exercise.description}</p>
+                            <PracticeExercise
+                                instructions = {exercise.instructions}
+                                renderExercise = {exercise.renderExercise}
+                            />
                         </>
                     ))}
                 </section>

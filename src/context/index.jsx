@@ -11,9 +11,19 @@ const classes = [
             {
                 title: 'Vector Addition',
                 description: 'To add two vectors you just have to add the entries. For example, to add the vectors: \\[\\begin{bmatrix}1 \\\\0 \\end{bmatrix} \\begin{bmatrix}0 \\\\1 \\end{bmatrix}\\]we would do something like this: \\[\\begin{bmatrix}1 & + & 0 \\\\0 & + & 1 \\end{bmatrix} = \\begin{bmatrix}1 \\\\1 \\end{bmatrix}\\]Note that we cannot add vectors with different number of entries, for example: \\(\\begin{bmatrix}1 \\\\1 \\end{bmatrix}\\) and \\(\\begin{bmatrix}1 \\\\1 \\\\1 \\end{bmatrix}\\).',
+                instructions: 'Calculate the sum of the following vectors:',
+                renderExercise: () => {
+                    let firstvalue = 1;
+
+                    const vectors = `\\[\\begin{bmatrix} ${firstvalue} \\\\ ${firstvalue} \\end{bmatrix} + \\begin{bmatrix}${firstvalue} \\\\${firstvalue} \\end{bmatrix}\\]`;
+
+                    return(
+                        <p>{vectors}</p>
+                    )
+                },
             },
             {
-                title: 'Vector Multiplication by Scalars.',
+                title: 'Vector Multiplication by Scalars',
                 description: 'In linear algebra, real numbers are called scalars. If you multiply a vector by a scalar, you are streching out that vector, so that its length n times larger than the original length. \\[n \\cdot \\begin{bmatrix}1 \\\\1 \\end{bmatrix}\\]You can also shorten their lengths by multiplying them by a fraction. \\[ \\frac{1}{2}\\cdot\\begin{bmatrix}1 \\\\1 \\end{bmatrix} = \\begin{bmatrix}\\frac{1}{2} \\\\ \\frac{1}{2} \\end{bmatrix}\\]',
             },
         ],
