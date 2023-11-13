@@ -5,14 +5,14 @@ import { PracticeExercise } from '../practiceExercise';
 import './styles.css';
 
 const ClassContent = () => {
-    const {classes, activeClass} = useContext(ClassesContext);
+    const {classes, activeClass, isRenderAnswer, setIsRenderAnswer} = useContext(ClassesContext);
 
     useEffect(()=>{
         if(typeof window?.MathJax !== "undefined"){
             window.MathJax.typesetClear()
             window.MathJax.typeset()
         }
-      },[activeClass])
+      },[activeClass, isRenderAnswer])
 
     return (
         <div className='flex justify-center absolute right-0 pb-10 class-content-container'>
@@ -23,15 +23,17 @@ const ClassContent = () => {
                 </div>
                 <section className=' text-xl'>
                     <p>{classes[activeClass].preview}</p>
-                    {classes[activeClass].exercises?.map((exercise) => (
-                        <>
+                    {classes[activeClass].exercises?.map((exercise, index) => (
+                        <div key={index}>
                             <h3 className='my-5 text-3xl font-medium text-center'>{exercise.title}</h3>
                             <p>{exercise.description}</p>
                             <PracticeExercise
                                 instructions = {exercise.instructions}
                                 renderExercise = {exercise.renderExercise}
+                                isRenderAnswer = {isRenderAnswer}
+                                setIsRenderAnswer = {setIsRenderAnswer}
                             />
-                        </>
+                        </div>
                     ))}
                 </section>
             </div>            
