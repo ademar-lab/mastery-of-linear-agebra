@@ -9,6 +9,7 @@ const a = randomInteger(10);
 const b = randomInteger(10);
 const c = randomInteger(10);
 const d = randomInteger(10);
+const e = randomInteger(10);
 
 const classes = [
     {
@@ -25,7 +26,6 @@ const classes = [
 
                         return <p>{answer}</p>
                     } else {
-
                         const vectors = `\\[\\begin{bmatrix} ${a} \\\\ ${b} \\end{bmatrix} + \\begin{bmatrix}${c} \\\\${d} \\end{bmatrix}\\]`;
                         
                         return <p>{vectors}</p>
@@ -35,6 +35,18 @@ const classes = [
             {
                 title: 'Vector Multiplication by Scalars',
                 description: 'In linear algebra, real numbers are called scalars. If you multiply a vector by a scalar, you are streching out that vector, so that its length is n times larger than the original length. \\[n \\cdot \\begin{bmatrix}1 \\\\1 \\end{bmatrix}\\]You can also shorten their lengths by multiplying them by a fraction. \\[ \\frac{1}{2}\\cdot\\begin{bmatrix}1 \\\\1 \\end{bmatrix} = \\begin{bmatrix}\\frac{1}{2} \\\\ \\frac{1}{2} \\end{bmatrix}\\]',
+                instructions: 'Multiply the following vector by the scalar :',
+                renderExercise: (isRenderAnswer) => {
+                    if (isRenderAnswer) {
+                        const answer = `\\[\\begin{bmatrix} ${a} \\\\ ${b} \\end{bmatrix} \\cdot ${e} = \\begin{bmatrix} ${a} \\cdot ${e} \\\\ ${b} \\cdot ${e} \\end{bmatrix} = \\begin{bmatrix} ${a*e} \\\\ ${b*e} \\end{bmatrix} \\]`;
+
+                        return <p>{answer}</p>
+                    } else {
+                        const vectors = `\\[\\begin{bmatrix} ${a} \\\\ ${b} \\end{bmatrix} \\cdot ${e} \\]`;
+                        
+                        return <p>{vectors}</p>
+                    }
+                },
             },
         ],
     },
