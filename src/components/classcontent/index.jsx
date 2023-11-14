@@ -28,6 +28,7 @@ const ClassContent = () => {
                             <h3 className='my-5 text-3xl font-medium text-center'>{exercise.title}</h3>
                             <p>{exercise.description}</p>
                             <PracticeExercise
+                                id={index + 1}
                                 instructions = {exercise.instructions}
                                 renderExercise = {exercise.renderExercise}
                                 isRenderAnswer = {isRenderAnswer}
