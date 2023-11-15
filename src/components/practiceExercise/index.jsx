@@ -29,7 +29,12 @@ const PracticeExercise = ({id, instructions, renderExercise, isRenderAnswer, set
                 <button 
                     className='border-black border-2 px-6 py-3 rounded-lg'
                     onClick={()=>{
-                        setFirstClassValues(getValues(5, 10));
+                        // newValues is assigned to a copy of firstClassValues to allow the rerender in react
+                        const newValues = [...firstClassValues];
+                        newValues.splice(id-1, 1, getValues(5, 10));
+                        setFirstClassValues(newValues);
+
+                        // Stop rendering the answer
                         const index = isRenderAnswer.indexOf(id);
                         // if isRenderAnswer is empty indexOf will return -1
                         if (index != -1) {
