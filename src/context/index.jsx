@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { createContext } from "react";
-import { randomInteger } from "../utils";
+import { getValues, randomInteger } from "../utils";
 
 const ClassesContext = createContext();
 
@@ -20,13 +20,13 @@ const classes = [
                 title: 'Vector Addition',
                 description: 'To add two vectors you just have to add the entries. For example, to add the vectors: \\[\\begin{bmatrix}1 \\\\0 \\end{bmatrix} \\begin{bmatrix}0 \\\\1 \\end{bmatrix}\\]we would do something like this: \\[\\begin{bmatrix}1 & + & 0 \\\\0 & + & 1 \\end{bmatrix} = \\begin{bmatrix}1 \\\\1 \\end{bmatrix}\\]Note that we cannot add vectors with different number of entries, for example: \\(\\begin{bmatrix}1 \\\\1 \\end{bmatrix}\\) and \\(\\begin{bmatrix}1 \\\\1 \\\\1 \\end{bmatrix}\\).',
                 instructions: 'Calculate the sum of the following vectors:',
-                renderExercise: (isRenderAnswer) => {
+                renderExercise: (isRenderAnswer, firstClassValues) => {
                     if (isRenderAnswer.includes(1)) {
-                        const answer = `\\[ \\begin{bmatrix} ${a} \\\\ ${b} \\end{bmatrix} + \\begin{bmatrix}${c} \\\\${d} \\end{bmatrix} = \\begin{bmatrix} ${a} + ${c} \\\\ ${b} + ${d} \\end{bmatrix} = \\begin{bmatrix} ${a + c} \\\\ ${b + d} \\end{bmatrix} \\]`;
+                        const answer = `\\[ \\begin{bmatrix} ${firstClassValues[0]} \\\\ ${firstClassValues[1]} \\end{bmatrix} + \\begin{bmatrix}${firstClassValues[2]} \\\\${firstClassValues[3]} \\end{bmatrix} = \\begin{bmatrix} ${firstClassValues[0]} + ${firstClassValues[2]} \\\\ ${firstClassValues[1]} + ${firstClassValues[3]} \\end{bmatrix} = \\begin{bmatrix} ${firstClassValues[0] + firstClassValues[2]} \\\\ ${firstClassValues[1] + firstClassValues[3]} \\end{bmatrix} \\]`;
 
                         return <p>{answer}</p>
                     } else {
-                        const vectors = `\\[\\begin{bmatrix} ${a} \\\\ ${b} \\end{bmatrix} + \\begin{bmatrix}${c} \\\\${d} \\end{bmatrix}\\]`;
+                        const vectors = `\\[\\begin{bmatrix} ${firstClassValues[0]} \\\\ ${firstClassValues[1]} \\end{bmatrix} + \\begin{bmatrix}${firstClassValues[2]} \\\\${firstClassValues[3]} \\end{bmatrix}\\]`;
                         
                         return <p>{vectors}</p>
                     }
@@ -101,7 +101,7 @@ const classes = [
 const ClassesProvider = ({children}) => {
     const [ activeClass, setActiveClass ] = useState(0);
     const [ isRenderAnswer, setIsRenderAnswer ] = useState([]);
-    const [ firstClassValues, setFirstClassValues] = useState()
+    const [ firstClassValues, setFirstClassValues ] = useState(getValues(5, 10));
 
     return (
         <ClassesContext.Provider value={{
@@ -109,7 +109,9 @@ const ClassesProvider = ({children}) => {
             activeClass,
             setActiveClass,
             isRenderAnswer,
-            setIsRenderAnswer
+            setIsRenderAnswer,
+            firstClassValues,
+            setFirstClassValues
         }}>
             {children}
         </ClassesContext.Provider>

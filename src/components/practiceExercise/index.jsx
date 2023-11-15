@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { ClassesContext } from '../../context';
+import { getValues } from '../../utils';
 import './styles.css';
 
-const PracticeExercise = ({id, instructions, renderExercise, isRenderAnswer, setIsRenderAnswer}) => {
+const PracticeExercise = ({id, instructions, renderExercise, isRenderAnswer, setIsRenderAnswer, firstClassValues, setFirstClassValues}) => {
 	return (
 		<div className='flex flex-col justify-between gap-4 p-5 my-5 bg-slate-100 rounded-xl practice-exercise'>
             <header>
@@ -10,7 +11,7 @@ const PracticeExercise = ({id, instructions, renderExercise, isRenderAnswer, set
                 <p className='text-xl font-medium'>{instructions}</p>
             </header>
             <section>
-                {renderExercise ? renderExercise(isRenderAnswer) : renderExercise}
+                {renderExercise ? renderExercise(isRenderAnswer, firstClassValues) : renderExercise}
             </section>
             <div className='flex justify-around'>
                 <button 
@@ -24,7 +25,21 @@ const PracticeExercise = ({id, instructions, renderExercise, isRenderAnswer, set
                     >
                     Show me the answer
                 </button>
-                <button className=' border-black border-2 px-6 py-3 rounded-lg'>New exercise</button>
+
+                <button 
+                    className='border-black border-2 px-6 py-3 rounded-lg'
+                    onClick={()=>{
+                        setFirstClassValues(getValues(5, 10));
+                        const index = isRenderAnswer.indexOf(id);
+                        // if isRenderAnswer is empty indexOf will return -1
+                        if (index != -1) {
+                            isRenderAnswer.splice(index, 1);
+                            setIsRenderAnswer(isRenderAnswer);
+                        }
+                    }}
+                    >
+                    New exercise
+                </button>
             </div>            
 		</div>
 	)

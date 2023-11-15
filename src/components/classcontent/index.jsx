@@ -5,14 +5,14 @@ import { PracticeExercise } from '../practiceExercise';
 import './styles.css';
 
 const ClassContent = () => {
-    const {classes, activeClass, isRenderAnswer, setIsRenderAnswer} = useContext(ClassesContext);
+    const {classes, activeClass, isRenderAnswer, setIsRenderAnswer, firstClassValues, setFirstClassValues} = useContext(ClassesContext);
 
     useEffect(()=>{
         if(typeof window?.MathJax !== "undefined"){
             window.MathJax.typesetClear()
             window.MathJax.typeset()
         }
-      },[activeClass, isRenderAnswer])
+      },[activeClass, isRenderAnswer, firstClassValues])
 
     return (
         <div className='flex justify-center absolute right-0 pb-10 class-content-container'>
@@ -33,6 +33,8 @@ const ClassContent = () => {
                                 renderExercise = {exercise.renderExercise}
                                 isRenderAnswer = {isRenderAnswer}
                                 setIsRenderAnswer = {setIsRenderAnswer}
+                                firstClassValues = {firstClassValues}
+                                setFirstClassValues = {setFirstClassValues}
                             />
                         </div>
                     ))}
