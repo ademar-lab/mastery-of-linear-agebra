@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { ClassesContext } from '../../context';
 import { getValues } from '../../utils';
 import './styles.css';
 

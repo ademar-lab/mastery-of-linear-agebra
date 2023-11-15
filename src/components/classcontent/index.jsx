@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useContext } from 'react';
 import { ClassesContext } from '../../context';
 import { PracticeExercise } from '../practiceExercise';
